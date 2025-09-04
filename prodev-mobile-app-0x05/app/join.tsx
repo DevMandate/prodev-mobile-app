@@ -5,13 +5,13 @@ import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { GOOGLELOGO, FACEBOOKLOGO, HEROLOGO } from "@/constants";
 
-export default function Signin() {
+export default function Join() {
   const router = useRouter();
 
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
-        {/* Top navigation */}
+        {/* Top navigation bar */}
         <View style={styles.iconsection}>
           <Ionicons name="arrow-back" size={25} onPress={() => router.back()} />
           <Image source={HEROLOGO} />
@@ -19,15 +19,21 @@ export default function Signin() {
 
         {/* Title */}
         <View style={styles.titleTextGroup}>
-          <Text style={styles.titleText}>Sign in</Text>
-          <Text style={styles.titleText}>to your Account</Text>
+          <Text style={styles.titleText}>Join</Text>
+          <Text style={styles.titleText}>Now</Text>
           <Text style={styles.subText}>
-            Enter your email and password to sign in.
+            Create an account to get started.
           </Text>
         </View>
 
         {/* Form Section */}
         <View style={styles.formGroup}>
+          {/* Full Name */}
+          <View>
+            <Text style={styles.formLabel}>Full Name</Text>
+            <TextInput style={styles.formControl} />
+          </View>
+
           {/* Email */}
           <View>
             <Text style={styles.formLabel}>Email</Text>
@@ -46,12 +52,19 @@ export default function Signin() {
             </View>
           </View>
 
-          <Text style={styles.forgotPasswordText}>Forgot password?</Text>
+          {/* Confirm Password */}
+          <View>
+            <Text style={styles.formLabel}>Confirm Password</Text>
+            <View style={styles.formPasswordControl}>
+              <TextInput style={styles.passwordControl} secureTextEntry />
+              <FontAwesome name="eye-slash" size={24} color="#7E7B7B" />
+            </View>
+          </View>
         </View>
 
         {/* Primary Button */}
         <TouchableOpacity style={styles.primaryButton}>
-          <Text style={styles.buttonText}>Sign in</Text>
+          <Text style={styles.buttonText}>Join Now</Text>
         </TouchableOpacity>
 
         {/* Divider */}
@@ -76,9 +89,9 @@ export default function Signin() {
 
         {/* Bottom Redirect */}
         <View style={styles.signupgroup}>
-          <Text style={styles.signupTitleText}>Don&apos;t have an account?</Text>
-          <TouchableOpacity onPress={() => router.push("/join")}>
-            <Text style={styles.signupSubTitleText}> Join now</Text>
+          <Text style={styles.signupTitleText}>Already have an account?</Text>
+          <TouchableOpacity onPress={() => router.push("/signin")}>
+            <Text style={styles.signupSubTitleText}> Sign in</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

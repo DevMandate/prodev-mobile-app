@@ -76,7 +76,7 @@ export default function Signin() {
 
         {/* Bottom Redirect */}
         <View style={styles.signupgroup}>
-          <Text style={styles.signupTitleText}>Don&apos;t have an account?</Text>
+          <Text style={styles.signupTitleText}>Don't have an account?</Text>
           <TouchableOpacity onPress={() => router.push("/join")}>
             <Text style={styles.signupSubTitleText}> Join now</Text>
           </TouchableOpacity>
